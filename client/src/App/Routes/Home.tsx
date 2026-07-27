@@ -75,8 +75,8 @@ export function Home(){
                     <div className={styles.groupInfo}>
                         <p className={styles.label}>Clouds Report</p>
                         <p className={styles.value}>
-                            {data.clouds[0]?.text || 'Clear'} 
-                            {data.clouds[0]?.base_feet_agl ? ` at ${data.clouds[0].base_feet_agl}ft` : ''}
+                            {data.clouds?.[0]?.text || 'Clear'} 
+                            {data.clouds?.[0]?.base_feet_agl ? ` at ${data.clouds[0].base_feet_agl}ft` : ''}
                         </p>
                     </div>
                 </div>
