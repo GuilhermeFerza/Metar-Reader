@@ -1,6 +1,6 @@
 # Metar Reader
 
-Um projeto pessoal simples desenvolvido em React para buscar e exibir dados meteorológicos de aeroportos (METAR) em tempo real. Através de uma interface minimalista e em *dark mode*, o usuário pode consultar as condições climáticas informando o código ICAO de qualquer aeroporto do mundo.
+Um projeto pessoal full-stack desenvolvido para buscar e exibir dados meteorológicos de aeroportos (METAR) em tempo real. Através de uma interface minimalista em *dark mode* construída em React, e uma API robusta feita em Go, o usuário pode consultar as condições climáticas informando o código ICAO de qualquer aeroporto do mundo.
 
 ## Funcionalidades
 
@@ -16,6 +16,7 @@ Um projeto pessoal simples desenvolvido em React para buscar e exibir dados mete
 
 ## Tecnologias Utilizadas
 
+### Frontend
 * **[React 18](https://react.dev/)** com **[Vite](https://vitejs.dev/)**
 * **TypeScript**
 * **React Router DOM** (Para roteamento)
@@ -23,37 +24,50 @@ Um projeto pessoal simples desenvolvido em React para buscar e exibir dados mete
 * **CSS Modules** (Para estilização isolada e sem conflitos)
 * **[Lucide React](https://lucide.dev/)** (Para ícones)
 
+### Backend
+* **[Go (Golang)](https://go.dev/)** 
+* **[Gin-Gonic](https://gin-gonic.com/)** (Framework web para rotas e middlewares)
+* **net/http** (Biblioteca padrão para lidar com as requisições)
+
 ## Instalação e Execução local
 
 Siga os passos abaixo para rodar o projeto na sua máquina:
 
 ### 1. Clone o repositório
 ```bash
-git clone [https://github.com/GuilhermeFerza/Metar-Reader.git](https://github.com/GuilhermeFerza/Metar-Reader.git)
+git clone https://github.com/GuilhermeFerza/Metar-Reader.git
 cd Metar-Reader
+```
 
-2. Instale as dependências
-
+### 2. Instale as dependências
+```bash
 npm install
 # ou
 yarn install
 # ou
 pnpm install
 
-3. Configuração das Variáveis de Ambiente
-Crie um arquivo chamado .env na raiz do projeto (no mesmo nível do package.json) e adicione as suas credenciais da API de METAR que você está utilizando:
+go mod tidy
+go run main.go
+```
 
+### 3. Configuração das Variáveis de Ambiente
+Crie um arquivo chamado .env na raiz do projeto (no mesmo nível do package.json) e adicione as suas credenciais da API de METAR que você está utilizando:
+```env
 VITE_API_KEY=e79541c3f614462dbde2e0e7351d20d4
 VITE_API_URL=http://localhost:8080
+```
+### 4. Rode o projeto
 
-4. Rode o projeto
+```bash
 npm run dev
 # ou
 yarn dev
-
+```
 Acesse http://localhost:5173 no seu navegador para ver o projeto rodando.
 
-Estrutura Base do Projeto
+## Estrutura Base do Projeto
+```text
 src/
  ├── App/
  │   ├── App.tsx          # Wrapper principal e layout
@@ -66,6 +80,7 @@ src/
  │   └── MetarContext.tsx # Contexto para compartilhar o JSON da API
  ├── Router.tsx           # Configuração do React Router (createBrowserRouter)
  └── main.tsx             # Ponto de entrada da aplicação
+ ```
 Desenvolvedor
 Desenvolvido por GuilhermeFerza.
 Projeto com fins de estudo prático de consumo de APIs, gerenciamento de estado (Context) e roteamento em React.
