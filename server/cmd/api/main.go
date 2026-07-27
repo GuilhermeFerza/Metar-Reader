@@ -44,7 +44,7 @@ func main() {
 
 		airportCode := c.Param("name")
 
-		checkwxURL := fmt.Sprintf("https://api.checkwx.com/metar/%s", airportCode)
+		checkwxURL := fmt.Sprintf("https://api.checkwx.com/metar/%s/decoded", airportCode)
 
 		req, err := http.NewRequest("GET", checkwxURL, nil)
 		if err != nil {

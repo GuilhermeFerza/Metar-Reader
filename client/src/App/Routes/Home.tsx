@@ -1,12 +1,18 @@
-export function Home({dados}: {dados:any}){
+import { useMetar } from '../../Context/MetarContext';
+import styles from './Home.module.css'
 
-    const metarString = dados.data ? dados.data[0]: "Sem dados disponiveis"
+export function Home(){
+    const { metarJson } = useMetar();
 
-    return(
-        <>
-            <pre>
-                {JSON.stringify(dados, null, 2)}
-            </pre>
-        </>
+    console.log("Estado no Home:", metarJson);
+
+    if (!metarJson) return null;
+
+    return (
+        <div className={styles.homeContainer}>
+            teste
+            <pre className={styles.info}>{JSON.stringify(metarJson)}</pre>
+            <pre className={styles.info}>{JSON.stringify(metarJson)}</pre>
+        </div>
     )
 }
